@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E81451961BF48F850083DD64 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81451951BF48F850083DD64 /* MediaPlayer.framework */; };
 		E81451981BF4C70B0083DD64 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81451971BF4C70B0083DD64 /* AVKit.framework */; };
+		E81451A01BF6020A0083DD64 /* small.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E814519F1BF6020A0083DD64 /* small.mp4 */; };
 		E86064D61BE24D2700B120DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E86064D81BE24D2700B120DC /* Localizable.strings */; };
 		E8C02DF81BE22007006966E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C02DF71BE22007006966E4 /* main.m */; };
 		E8C02DFB1BE22007006966E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C02DFA1BE22007006966E4 /* AppDelegate.m */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		E81451951BF48F850083DD64 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		E81451971BF4C70B0083DD64 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		E814519F1BF6020A0083DD64 /* small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = small.mp4; sourceTree = "<group>"; };
 		E86064D51BE24D0A00B120DC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		E86064D71BE24D2700B120DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E86064D91BE24E2600B120DC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C02DF71BE22007006966E4 /* main.m */,
+				E814519F1BF6020A0083DD64 /* small.mp4 */,
 				E86064D81BE24D2700B120DC /* Localizable.strings */,
 			);
 			name = "Supporting Files";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C02E031BE22007006966E4 /* Assets.xcassets in Resources */,
+				E81451A01BF6020A0083DD64 /* small.mp4 in Resources */,
 				E86064D61BE24D2700B120DC /* Localizable.strings in Resources */,
 				E8C02E011BE22007006966E4 /* Main.storyboard in Resources */,
 			);

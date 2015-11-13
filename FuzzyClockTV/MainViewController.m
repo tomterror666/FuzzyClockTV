@@ -14,14 +14,22 @@
 
 @interface MainViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *fuzzyClockLabel;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
+@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerViewController *playerController;
+@property (nonatomic, strong) NSDate *now;
+//@property (nonatomic, strong) id moviePlayer;
 @end
 
 @implementation MainViewController
 
+- (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.fuzzyClockLabel.text = [[NSString alloc] initWithFuzzyDate:[NSDate date]];
-	self.fuzzyClockLabel.textColor = [UIColor whiteColor];
 	[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateFuzzyTime) userInfo:nil repeats:YES];
 	
 //	Class webviewClass = NSClassFromString(@"UIWebView");
@@ -35,32 +43,50 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	NSString *urlStr = @"http://techslides.com/demos/sample-videos/small.mp4";//https://www.youtube.com/embed/5f2T-5mq_UY/?autoplay=1";
-	NSURL *url = [NSURL fileURLWithPath:urlStr];
+	//NSString *urlStr = @"http://techslides.com/demos/sample-videos/small.mp4";//https://www.youtube.com/embed/5f2T-5mq_UY/?autoplay=1";
+	NSString *urlStr = @"https://ia600801.us.archive.org/31/items/SnowFalling_201402/Snow%20H264.mp4";
+//	NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"Snow" ofType:@"mov"];
+//	NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"small" ofType:@"mp4"];
+	
+	
+//	<iframe width="854" height="480" src="https://www.youtube.com/embed/RuqVnqNPyC0" frameborder="0" allowfullscreen></iframe>
+	
+	NSURL *url = [NSURL URLWithString:urlStr];
+	//NSURL *url = [NSURL fileURLWithPath:urlStr];
 //	Class moviPlayerClass = NSClassFromString(@"MPMoviePlayerController");
-//	id moviePlayer = [[moviPlayerClass alloc] initWithContentURL:url];
-//	[moviePlayer prepareToPlay];
-//	[self.view insertSubview:[moviePlayer view] atIndex:0];
-//	[moviePlayer view].frame = self.view.bounds;
-//	[moviePlayer play];
+//	self.moviePlayer = [[moviPlayerClass alloc] initWithContentURL:url];
+//	[self.moviePlayer prepareToPlay];
+//	[self.view insertSubview:[self.moviePlayer view] atIndex:0];
+//	[self.moviePlayer view].frame = CGRectInset(self.view.bounds, 100, 100);
+//	[self.moviePlayer play];
 	
-	AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
-	NSError *playerError = playerItem.error;
-	AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+	self.playerItem = [AVPlayerItem playerItemWithURL:url];
+	NSError *playerError = self.playerItem.error;
+	self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
 	
-	AVPlayerViewController *playerController = [[AVPlayerViewController alloc] initWithNibName:nil bundle:nil];
-	playerController.player = player;
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRewind:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 	
-	playerController.view.frame = CGRectInset(self.view.bounds, 100, 100);
-	[self addChildViewController:playerController];
-	[self.view insertSubview:playerController.view atIndex:0];
-	[playerController didMoveToParentViewController:self];
-	playerController.showsPlaybackControls = YES;
-	[playerController.player play];
+	self.playerController = [[AVPlayerViewController alloc] initWithNibName:nil bundle:nil];
+	self.playerController.player = self.player;
+	
+	self.playerController.view.frame = self.view.bounds;
+	[self addChildViewController:self.playerController];
+	[self.view insertSubview:self.playerController.view atIndex:0];
+	[self.playerController didMoveToParentViewController:self];
+	self.playerController.showsPlaybackControls = NO;
+	self.now = [NSDate date];
+	[self.playerController.player play];
 }
 
 - (void)updateFuzzyTime {
 	self.fuzzyClockLabel.text = [[NSString alloc] initWithFuzzyDate:[NSDate date]];
+}
+
+- (void)handleRewind:(NSNotification *)notification {
+	//[self.player pause];
+	self.playerController.showsPlaybackControls = NO;
+	[self.player seekToTime:kCMTimeZero];
+	[self.player play];
 }
 
 @end
