@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  FuzzyClockTV
+
+  Created by Andre Hess on 29.10.15.
+  Copyright © 2015 Andre Hess. All rights reserved.
+*/
+
+"at" = " o'clock";
+"short after" = "shortly after";
+"five after" = "five past";
+"ten after" = "ten past";
+"fivteen after" = "quarter past";
+"twenty after" = "twenty past";
+"twenty five after" = "twenty five past";
+"half" = "half past";
+"twenty five before" = "twenty five to";
+"twenty before" = "twenty to";
+"fiveteen before" = "quarter to";
+"ten before" = "ten to";
+"five before" = "five to";
+"short before" = "nearly";
+"1" = " one";
+"2" = " two";
+"3" = " three";
+"4" = " four";
+"5" = " five";
+"6" = " six";
+"7" = " seven";
+"8" = " eight";
+"9" = " nine";
+"10" = " ten";
+"11" = " eleven";
+"12" = " twelve";
+"settings" = "Settings";
+"selectBackgroundColor" = "Select background color";
+"selectBackgroundImage" = "Select background image";
+"redValue" = "Value of red color component";
+"greenValue" = "Value of green color component";
+"blueValue" = "Value of blue color component";
+"resultColor" = "Selected background color";
+"colorSelection" = "Color selection";

@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  FuzzyClockTV
+
+  Created by Andre Hess on 29.10.15.
+  Copyright © 2015 Andre Hess. All rights reserved.
+*/
+
+"at" = "um";
+"short after" = "kurz nach";
+"five after" = "fünf nach";
+"ten after" = "zehn nach";
+"fivteen after" = "viertel";
+"twenty after" = "zehn vor halb";
+"twenty five after" = "fünf vor halb";
+"half" = "halb";
+"twenty five before" = "fünf nach halb";
+"twenty before" = "zehn nach halb";
+"fiveteen before" = "dreiviertel";
+"ten before" = "zehn vor";
+"five before" = "fünf vor";
+"short before" = "kurz vor";
+"1" = " eins";
+"2" = " zwei";
+"3" = " drei";
+"4" = " vier";
+"5" = " fünf";
+"6" = " sechs";
+"7" = " sieben";
+"8" = " acht";
+"9" = " neun";
+"10" = " zehn";
+"11" = " elf";
+"12" = " zwölf";
+"settings" = "Einstellungen";
+"selectBackgroundColor" = "Hintergrundfarbe wählen";
+"selectBackgroundImage" = "Hintergrundbild wählen";
+"redValue" = "Wert des roten Farbkanals";
+"greenValue" = "Wert des grünen Farbkanals";
+"blueValue" = "Wert des blauen Farbkanals";
+"resultColor" = "Ausgewählte Hintergrundfarbe";
+"colorSelection" = "Farbauswahl";
